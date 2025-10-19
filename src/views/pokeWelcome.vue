@@ -5,8 +5,8 @@ import VufyButton from '../components/vufyButton/vufyButton.vue';
 
 <template>
   <div class="welcome">
-    <h1>Welcome View</h1>
-    <p>This is the Welcome view content.</p>
-    <VufyButton textContent="Get Started" density="default" size="x-large" rounded="xl" />
+    <h1>Welcome to Pokédex</h1>
+    <p>The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon world.</p>
+    <VufyButton color="imperialRed" textContent="Get Started" density="default" size="x-large" rounded="xl" />
   </div>
 </template>

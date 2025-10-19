@@ -1,5 +1,6 @@
 export interface vufyButtonPropsType {
   textContent?: string
+  color?: string
   variant?: 'flat' | 'text' | 'elevated' | 'outlined' | 'plain' | 'tonal'
   density?: 'compact' | 'comfortable' | 'default'
   size?: 'x-small' | 'small' | 'default' | 'large' | 'x-large'
