@@ -1,1 +1,13 @@
-@use './colors';
+@use './colors' as v;
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.title {
+  color: v.$title-color;
+}
+
+.subtitle {
+  color: v.$subtitle-color;
+}

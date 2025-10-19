@@ -1,13 +1,15 @@
 <script setup lang="ts"></script>
 
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Welcome</router-link>
     <router-link to="/list">List</router-link>
-  </nav>
-  <div>
-    <router-view />
-  </div>
+  </nav> -->
+  <v-app>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <style scoped></style>
