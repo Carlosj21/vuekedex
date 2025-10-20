@@ -8,3 +8,5 @@ export const axiosHelper = ({ method, url, data }: axiosHelperType) => {
     data,
   })
 }
+
+export default axiosHelper

@@ -1,6 +1,13 @@
 import type { PokemonType } from '@jaflesch/ts-pokeapi'
 
 export interface pokemonStoreType {
-  pokemonList: Array<PokemonType>
-  favoritePokemons: Record<number, boolean>
+  pokemons: PokemonType[]
+  filteredPokemons: PokemonType[]
+  searchTerm: string
+  loading: boolean
+  offset: number
+  limit: number
+  totalCount: number
+  pokemonNamesCache: PokemonType[]
+  namesCacheLoaded: boolean
 }
