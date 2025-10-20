@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type axiosHelperType from '@/helpers/api/axiosHelperType'
+import type axiosHelperType from '@/types/api/axiosHelperType'
 
 export const axiosHelper = ({ method, url, data }: axiosHelperType) => {
   return axios({

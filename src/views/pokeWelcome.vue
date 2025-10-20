@@ -14,7 +14,7 @@
         </h2>
       </v-col>
       <v-col cols="12" md="12" class="d-flex align-center justify-center">
-        <v-btn @click="navigateToPokeList()" color="imperialRed" density="default" size="x-large" rounded="xl"
+        <v-btn @click="navigateToPokeMain()" color="imperialRed" density="default" size="x-large" rounded="xl"
           class="text-base">
           Get started
         </v-btn>
@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import router from '@/router/index.ts';
 
-function navigateToPokeList() {
-  router.push({ name: 'PokeList' });
+function navigateToPokeMain() {
+  router.push({ name: 'PokeMain' });
 }
 </script>

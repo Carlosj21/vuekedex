@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import PokeWelcome from '@/views/pokeWelcome.vue'
-import PokeList from '@/views/pokeList.vue'
+import PokeMain from '@/views/pokeMain.vue'
 
 const routes = [
   { path: '/', name: 'PokeWelcome', component: PokeWelcome },
-  { path: '/pokeList', name: 'PokeList', component: PokeList },
+  { path: '/pokeMain', name: 'PokeMain', component: PokeMain },
 ]
 
 const router = createRouter({

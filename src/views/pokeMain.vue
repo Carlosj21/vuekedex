@@ -1,24 +1,20 @@
 <template>
   <pokeLoader v-if="loading" />
-  <v-app v-else>
-    <v-main>
-      <v-container>
-        <v-row>
-          <v-spacer></v-spacer>
-          <v-col cols="12" md="10" sm="10" xs="12" align-self="center">
-            <pokeSearchBar />
-          </v-col>
-          <v-spacer></v-spacer>
-        </v-row>
-        <v-row>
-          <v-spacer></v-spacer>
-          <v-col cols="12" md="10" sm="10" xs="12" align-self="center">
-            <pokeList />
-          </v-col>
-          <v-spacer></v-spacer>
-        </v-row>
-      </v-container>
-    </v-main>
+  <v-container v-else>
+    <v-row>
+      <v-spacer></v-spacer>
+      <v-col cols="12" md="10" sm="10" xs="12" align-self="center">
+        <pokeSearchBar />
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
+    <v-row>
+      <v-spacer></v-spacer>
+      <v-col cols="12" md="10" sm="10" xs="12" align-self="center">
+        <pokeList />
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
     <v-footer app fixed class="text-center d-flex flex-column ga-2 py-4" elevation="10">
       <v-container>
         <v-row justify="center">
@@ -40,7 +36,7 @@
         </v-row>
       </v-container>
     </v-footer>
-  </v-app>
+  </v-container>
 </template>
 
 <script setup lang="ts">
