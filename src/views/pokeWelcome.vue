@@ -14,15 +14,16 @@
         </h2>
       </v-col>
       <v-col cols="12" md="12" class="d-flex align-center justify-center">
-        <vufyButton @click="navigateToPokeList()" color="imperialRed" textContent="Get started" density="default"
-          size="x-large" rounded="xl" />
+        <v-btn @click="navigateToPokeList()" color="imperialRed" density="default" size="x-large" rounded="xl"
+          class="text-base">
+          Get started
+        </v-btn>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script setup lang="ts">
-import vufyButton from '@/components/vufyButton/vufyButton.vue';
 import router from '@/router/index.ts';
 
 function navigateToPokeList() {
