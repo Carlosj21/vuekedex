@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Pokeloader from '@/components/pokeLoader/pokeloader.vue';
+import Pokeloader from '@/components/pokeLoader/pokeLoader.vue';
 
 const loading = ref(true);
 
