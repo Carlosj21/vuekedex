@@ -10,7 +10,6 @@ const app = createApp(App)
 
 app.use(vuetify)
 app.use(pinia)
-app.use(router)
 ;(async () => {
   await initStores()
   app.use(router)
