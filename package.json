@@ -17,6 +17,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@jaflesch/ts-pokeapi": "^0.6.0",
     "@mdi/font": "^7.4.47",
     "axios": "^1.12.2",
     "pinia": "^3.0.3",
