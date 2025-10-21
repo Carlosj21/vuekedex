@@ -1,47 +1,124 @@
-import type getPokemonByNameOrIdType from '@/types/api/getPokemonByNameOrIdType'
-import type { LoadPokemonsParams } from '@/types/api/getPokemonsType'
+import type { PokemonRequestType, PokemonType } from '@/types/api/getPokemonByNameOrIdType'
+import type {
+  PokemonListResponse,
+  PokemonDetail,
+  LoadPokemonsParams,
+} from '@/types/api/getPokemonsType'
 import { errorHandler } from '@/utils/errorHandler'
 import axiosHelper from '@/api/helpers/axiosHelper'
 
-const getPokemons = async ({ limit, offset }: LoadPokemonsParams) => {
-  try {
-    const limitString = limit ? `limit=${limit}` : ''
-    const offsetString = offset ? `offset=${offset}` : ''
-    const optionString = [limitString, offsetString].filter((str) => str.length).join('&')
+export const pokemonApi = {
+  async getPokemons(params: LoadPokemonsParams): Promise<PokemonListResponse> {
+    try {
+      const { limit, offset } = params
+      const limitString = limit ? `limit=${limit}` : ''
+      const offsetString = offset ? `offset=${offset}` : ''
+      const optionString = [limitString, offsetString].filter((str) => str.length).join('&')
 
-    await axiosHelper({
-      method: 'get',
-      url: `${import.meta.env.VITE_POKEAPI_URL}/pokemon/${optionString.length ? '?' + optionString : ''}`,
-    })
-      .then((response) => {
-        console.log(response.data)
+      return await axiosHelper({
+        method: 'get',
+        url: `${import.meta.env.VITE_POKEAPI_URL}/pokemon/${optionString.length ? '?' + optionString : ''}`,
       })
-      .catch((error) => {
-        throw error
-      })
-  } catch (error: unknown) {
-    errorHandler(error)
-  }
-}
-
-const getPokemonByNameOrId = async ({ name, id }: getPokemonByNameOrIdType) => {
-  try {
-    if (!!name && !!id) {
-      throw new Error('Provide either name or id, not both.')
+        .then(({ data }) => {
+          return data
+        })
+        .catch((error) => {
+          throw error
+        })
+    } catch (error: unknown) {
+      errorHandler(error)
+      throw error
     }
-    await axiosHelper({
-      method: 'get',
-      url: `${import.meta.env.VITE_POKEAPI_URL}/pokemon/${name || id}`,
-    })
-      .then((response) => {
-        console.log(response.data)
-      })
-      .catch((error) => {
-        throw error
-      })
-  } catch (error: unknown) {
-    errorHandler(error)
-  }
-}
+  },
 
-export default { getPokemons, getPokemonByNameOrId }
+  // Obtener detalles de un Pokémon por URL
+  async getPokemonByUrl(url: string): Promise<PokemonDetail> {
+    try {
+      return await axiosHelper({
+        method: 'get',
+        url,
+      })
+        .then(({ data }) => {
+          return {
+            id: data.id,
+            name: data.name,
+            types: data.types.map((t: PokemonType) => t.type.name),
+            sprites: data.sprites,
+          }
+        })
+        .catch((error) => {
+          throw error
+        })
+    } catch (error: unknown) {
+      errorHandler(error)
+      throw error
+    }
+  },
+
+  // Obtener Pokémon por nombre exacto
+  async getPokemonByName({ name, id }: PokemonRequestType): Promise<PokemonDetail> {
+    try {
+      if (!name && !id) {
+        throw new Error('Provide either name or id, not both.')
+      }
+
+      return await axiosHelper({
+        method: 'get',
+        url: `${import.meta.env.VITE_POKEAPI_URL}/pokemon/${name || id}`,
+      })
+        .then(({ data }) => {
+          console.log(data)
+          return {
+            id: data.id,
+            name: data.name,
+            types: data.types.map((t: PokemonType) => t.type.name),
+            sprites: data.sprites,
+          }
+        })
+        .catch((error) => {
+          throw error
+        })
+    } catch (error: unknown) {
+      errorHandler(error)
+      throw error
+    }
+  },
+
+  // Cargar detalles de múltiples Pokémon en paralelo
+  async loadPokemonDetails(urls: string[]): Promise<PokemonDetail[]> {
+    try {
+      const promises = urls.map((url) => this.getPokemonByUrl(url))
+      const results = await Promise.allSettled(promises)
+
+      return results
+        .filter(
+          (result): result is PromiseFulfilledResult<PokemonDetail> =>
+            result.status === 'fulfilled',
+        )
+        .map((result) => result.value)
+    } catch (error: unknown) {
+      errorHandler(error)
+      throw error
+    }
+  },
+
+  // Obtener cache de nombres para búsqueda
+  async getPokemonNamesCache(limit = 2000): Promise<PokemonListResponse> {
+    try {
+      return await axiosHelper({
+        method: 'get',
+        url: `${import.meta.env.VITE_POKEAPI_URL}/pokemon?limit=${limit}&offset=0`,
+      })
+        .then(({ data }) => {
+          console.log(data)
+          return data
+        })
+        .catch((error) => {
+          throw error
+        })
+    } catch (error: unknown) {
+      errorHandler(error)
+      throw error
+    }
+  },
+}
