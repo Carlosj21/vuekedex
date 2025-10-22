@@ -44,6 +44,8 @@ export const pokemonApi = {
             name: data.name,
             types: data.types.map((t: PokemonType) => t.type.name),
             sprites: data.sprites,
+            weight: data.weight,
+            height: data.height,
           }
         })
         .catch((error) => {
@@ -73,6 +75,8 @@ export const pokemonApi = {
             name: data.name,
             types: data.types.map((t: PokemonType) => t.type.name),
             sprites: data.sprites,
+            weight: data.weight,
+            height: data.height,
           }
         })
         .catch((error) => {

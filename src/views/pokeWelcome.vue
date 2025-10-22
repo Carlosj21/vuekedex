@@ -14,9 +14,9 @@
         </h2>
       </v-col>
       <v-col cols="12" md="12" class="d-flex align-center justify-center">
-        <v-btn @click="navigateToPokeMain()" color="imperialRed" density="default" size="x-large" rounded="xl"
-          class="text-base">
-          Get started
+        <v-btn @click="navigateToPokeMain()" color="primary" density="default" size="large" rounded="xl"
+          class="text-none">
+          <b>Get started</b>
         </v-btn>
       </v-col>
     </v-row>

@@ -5,6 +5,16 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
+const hunyadiYellow = '#eca539'
+const fireBrick = '#c00e20'
+const imperialRed = '#f22539'
+const jet = '#353535'
+const davysGray = '#5e5e5e'
+const silver = '#bfbfbf'
+const platinum = '#e8e8e8'
+const whiteSmoke = '#f5f5f5'
+const seasalt = '#f9f9f9'
+
 export default createVuetify({
   components,
   directives,
@@ -20,15 +30,17 @@ export default createVuetify({
       light: {
         dark: false,
         colors: {
-          hunyadiYellow: '#eca539',
-          fireBrick: '#c00e20',
-          imperialRed: '#f22539',
-          jet: '#353535',
-          davysGray: '#5e5e5e',
-          silver: '#bfbfbf',
-          platinum: '#e8e8e8',
-          whiteSmoke: '#f5f5f5',
-          seasalt: '#f9f9f9',
+          primary: imperialRed,
+          secondary: hunyadiYellow,
+          hunyadiYellow,
+          fireBrick,
+          imperialRed,
+          jet,
+          davysGray,
+          silver,
+          platinum,
+          whiteSmoke,
+          seasalt,
         },
       },
     },

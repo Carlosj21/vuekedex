@@ -17,10 +17,5 @@ body {
 }
 
 .text-base {
-  font-family: 'Lato', sans-serif !important;
   color: v.$white !important;
-
-  &__black {
-    color: v.$black !important;
-  }
 }

@@ -1,7 +1,7 @@
 <template>
   <v-lazy :options="{ threshold: 0.5 }" transition="fade-transition">
     <v-container>
-      <v-card class="mx-auto" :title="props.pokemon.name.toUpperCase()" link @click="handleClick">
+      <v-card :title="props.pokemon.name.toUpperCase()" link @click="handleClick">
         <template v-slot:append>
           <poke-favorite-btn @toggle-value="handleFavoriteValue" :value="pokemon.id" />
         </template>

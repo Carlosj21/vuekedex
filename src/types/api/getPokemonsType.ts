@@ -1,3 +1,4 @@
+import type { PokemonSprites } from './pokemonSpritesType.ts'
 export interface PokemonListResponse {
   count: number
   next: string | null
@@ -14,9 +15,9 @@ export interface PokemonDetail {
   id: number
   name: string
   types: string[]
-  sprites?: {
-    front_default: string
-  }
+  sprites?: PokemonSprites
+  weight?: number // Peso en hectogramos (dividir por 10 para kg)
+  height?: number // Altura en decímetros (dividir por 10 para metros)
 }
 
 export interface LoadPokemonsParams {

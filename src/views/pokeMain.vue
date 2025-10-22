@@ -24,8 +24,8 @@
       <v-col cols="12" md="10" sm="10" xs="12" align-self="center">
         <v-container>
           <div ref="observerTarget">
-            <v-btn v-if="pokemonStore.hasMore && !pokemonStore.loading" @click="loadMore" color="imperialRed"
-              size="large" block>
+            <v-btn class="text-none" v-if="pokemonStore.hasMore && !pokemonStore.loading" @click="loadMore"
+              color="primary" size="large" block>
               Show more pokémons
             </v-btn>
           </div>
@@ -49,16 +49,20 @@
         <v-row justify="center">
           <v-spacer></v-spacer>
           <v-col cols="3">
-            <v-btn color="imperialRed" density="default" size="x-large" rounded="xl" block
-              prepend-icon="mdi-format-list-bulleted-square" class="text-base">
-              All
+            <v-btn color="primary" size="large" rounded="xl" block class="text-none">
+              <template v-slot:prepend>
+                <v-icon>mdi-format-list-bulleted-square</v-icon>
+              </template>
+              <b>All</b>
             </v-btn>
           </v-col>
 
           <v-col cols="3">
-            <v-btn color="silver" density="default" size="x-large" rounded="xl" block prepend-icon="mdi-star"
-              class="text-base">
-              Favorites
+            <v-btn color="primary" size="large" rounded="xl" block class="text-none">
+              <template v-slot:prepend>
+                <v-img height="20" width="20" src="images/whiteStar.svg" />
+              </template>
+              <b>Favorites</b>
             </v-btn>
           </v-col>
           <v-spacer></v-spacer>
