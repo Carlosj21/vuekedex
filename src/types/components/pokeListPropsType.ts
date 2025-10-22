@@ -1,6 +1,6 @@
-import type { PokemonType } from '@/types/api/getPokemonByNameOrIdType'
+import type { PokemonDetail } from '@/types/api/getPokemonsType'
 
 export interface PokeListProps {
-  pokemons: PokemonType[]
+  pokemons: PokemonDetail[]
   loading?: boolean
 }

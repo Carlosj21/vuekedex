@@ -1,32 +1,32 @@
 <template>
-  <v-list-item>
-    <v-list-item-title>POKEMON NAME</v-list-item-title>
-    <template v-slot:append>
-      <pokeFavoriteBtn @hover="handleHover" @toggle-value="handleToggleValue" :value="dummyBool" />
-    </template>
-  </v-list-item>
+  <v-lazy :options="{ threshold: 0.5 }" transition="fade-transition">
+    <v-container>
+      <v-card class="mx-auto" :title="props.pokemon.name.toUpperCase()" link @click="handleClick">
+        <template v-slot:append>
+          <poke-favorite-btn @toggle-value="handleFavoriteValue" :value="pokemon.id" />
+        </template>
+      </v-card>
+    </v-container>
+  </v-lazy>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import type { PokeListItemProps } from '@/types/components/pokeListItemPropsType'
 import pokeFavoriteBtn from '@/components/pokeFavoriteBtn/pokeFavoriteBtn.vue';
 
-const dummyBool = ref(true);
+const props = defineProps<PokeListItemProps>()
 
-function handleToggleValue(val: boolean) {
-  dummyBool.value = val;
+const emit = defineEmits<{
+  (e: 'pokemonClick', pokemon: typeof props.pokemon): void
+}>()
+
+function handleFavoriteValue() {
+  // llamamos action para guardar o eliminar de favoritos
 }
 
-function handleHover() {
-  console.log('hover')
+function handleClick() {
+  // abrir dialog con detalles del pokemon
+  emit('pokemonClick', props.pokemon)
 }
-
-watch(
-  dummyBool,
-  (newVal, oldVal) => {
-    console.log('Change detected:', newVal, oldVal);
-  },
-  { deep: true }
-);
 
 </script>

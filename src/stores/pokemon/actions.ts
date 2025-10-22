@@ -66,7 +66,7 @@ export const actions = {
         this.filteredPokemons = [exactMatch]
         return
       } catch {
-        // Continuar con búsqueda parcial
+        // Aqui contianuariamos con búsqueda parcial pero pokeapi no es compatible con busquedas parciales
       }
 
       // Estrategia 2: Búsqueda parcial

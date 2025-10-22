@@ -1,4 +1,9 @@
 <template>
+  <v-btn variant="elevated" icon color="whiteSmoke">
+    <v-img height="30" width="30" src="images/brightStar.svg" />
+  </v-btn>
+</template>
+<!-- <template>
   <v-btn @click="toggleValue()" variant="elevated" icon color="whiteSmoke">
     <v-img height="30" width="30" :src="props.value ? 'images/brightStar.svg' : 'images/dullStar.svg'" />
   </v-btn>
@@ -18,4 +23,4 @@ function toggleValue() {
   emit('toggleValue', favoriteValue.value);
 }
 
-</script>
+</script> -->

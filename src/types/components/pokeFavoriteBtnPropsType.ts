@@ -1,3 +1,3 @@
 export interface pokeFavoriteBtnPropsType {
-  value: boolean
+  pokemonId: number
 }

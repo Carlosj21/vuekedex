@@ -3,7 +3,7 @@ import { state } from './state'
 import { getters } from './getters'
 import { actions } from './actions'
 
-export const pokemonStore = defineStore('pokemon', {
+export const PokemonStore = defineStore('pokemon', {
   state,
   getters,
   actions,
