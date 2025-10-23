@@ -6,6 +6,7 @@ import type {
 } from '@/types/api/getPokemonsType'
 import { errorHandler } from '@/utils/errorHandler'
 import axiosHelper from '@/api/helpers/axiosHelper'
+import pokeapiUrl from '@/constants/config.ts'
 
 export const pokemonApi = {
   async getPokemons(params: LoadPokemonsParams): Promise<PokemonListResponse> {
@@ -17,7 +18,7 @@ export const pokemonApi = {
 
       return await axiosHelper({
         method: 'get',
-        url: `${import.meta.env.VITE_POKEAPI_URL}/pokemon/${optionString.length ? '?' + optionString : ''}`,
+        url: `${pokeapiUrl}/pokemon/${optionString.length ? '?' + optionString : ''}`,
       })
         .then(({ data }) => {
           return data
@@ -66,7 +67,7 @@ export const pokemonApi = {
 
       return await axiosHelper({
         method: 'get',
-        url: `${import.meta.env.VITE_POKEAPI_URL}/pokemon/${name || id}`,
+        url: `${pokeapiUrl}/pokemon/${name || id}`,
       })
         .then(({ data }) => {
           console.log(data)
@@ -111,7 +112,7 @@ export const pokemonApi = {
     try {
       return await axiosHelper({
         method: 'get',
-        url: `${import.meta.env.VITE_POKEAPI_URL}/pokemon?limit=${limit}&offset=0`,
+        url: `${pokeapiUrl}/pokemon?limit=${limit}&offset=0`,
       })
         .then(({ data }) => {
           console.log(data)
