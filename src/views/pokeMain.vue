@@ -59,12 +59,11 @@
     <!-- Footer con botones de navegación -->
     <v-footer app fixed class="text-center d-flex flex-column ga-2 py-4" elevation="10">
       <v-container>
-        <v-row justify="center">
-          <v-spacer></v-spacer>
-
-          <v-col cols="auto" sm="6" md="5">
-            <v-btn :color="viewMode === 'all' ? 'primary' : 'grey'" size="large" rounded="xl" block class="text-none"
-              @click="switchViewMode('all')">
+        <v-row>
+          <v-spacer v-if="!isMobile"></v-spacer>
+          <v-col>
+            <v-btn :color="viewMode === 'all' ? 'primary' : 'grey'" size="large" rounded="xl" class="text-none"
+              @click="switchViewMode('all')" block>
               <template v-slot:prepend>
                 <v-icon>mdi-format-list-bulleted-square</v-icon>
               </template>
@@ -72,17 +71,16 @@
             </v-btn>
           </v-col>
 
-          <v-col cols="auto" sm="6" md="5">
-            <v-btn :color="viewMode === 'favorites' ? 'primary' : 'grey'" size="large" rounded="xl" block
-              class="text-none" @click="switchViewMode('favorites')">
+          <v-col>
+            <v-btn :color="viewMode === 'favorites' ? 'primary' : 'grey'" size="large" rounded="xl" class="text-none"
+              @click="switchViewMode('favorites')" block>
               <template v-slot:prepend>
                 <v-img height="20" width="20" :src="whiteStar" />
               </template>
               <b>Favorites ({{ favoriteStore.favoritesCount }})</b>
             </v-btn>
           </v-col>
-
-          <v-spacer></v-spacer>
+          <v-spacer v-if="!isMobile"></v-spacer>
         </v-row>
       </v-container>
     </v-footer>
@@ -102,6 +100,12 @@ import pokeSearchBar from '@/components/pokeSearchBar/pokeSearchBar.vue'
 import pokeList from '@/components/pokeList/pokeList.vue'
 import pokeDetailDialog from '@/components/pokeDetailDialog/pokeDetailDialog.vue'
 import whiteStar from '@/assets/images/whiteStar.svg'
+
+import { useDisplay } from 'vuetify'
+
+const { xs } = useDisplay()
+
+const isMobile = computed(() => xs.value)
 
 const pokemonStore = usePokemonStore()
 const favoriteStore = usePokemonFavoriteStore()
