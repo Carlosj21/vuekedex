@@ -10,6 +10,6 @@ export const getters = {
   },
 
   isSearching: (state: PokemonStateType) => {
-    return state.searchTerm.length > 0
+    return state.searchTerm?.length > 0 || false
   },
 }

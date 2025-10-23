@@ -2,7 +2,7 @@
   <v-container>
     <v-text-field :model-value="modelValue" @update:model-value="handleInput" label="Search Pokémon"
       placeholder="Pokémon Name (like: pikachu)" prepend-inner-icon="mdi-magnify" clearable :loading="loading"
-      variant="solo" density="comfortable" />
+      variant="solo" density="comfortable" :disabled="disabled" />
   </v-container>
 </template>
 <script setup lang="ts">

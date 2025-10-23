@@ -1,6 +1,7 @@
 export interface PokeSearchBarProps {
-  modelValue: string
+  modelValue?: string
   loading?: boolean
+  disabled?: boolean
 }
 
 export interface PokeSearchBarEmits {
