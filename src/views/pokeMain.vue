@@ -75,7 +75,7 @@
             <v-btn :color="viewMode === 'favorites' ? 'primary' : 'grey'" size="large" rounded="xl" block
               class="text-none" @click="switchViewMode('favorites')">
               <template v-slot:prepend>
-                <v-img height="20" width="20" src="images/whiteStar.svg" />
+                <v-img height="20" width="20" :src="whiteStar" />
               </template>
               <b>Favorites ({{ favoriteStore.favoritesCount }})</b>
             </v-btn>
@@ -100,6 +100,7 @@ import { usePokemonFavoriteStore } from '@/stores/favorites'
 import pokeSearchBar from '@/components/pokeSearchBar/pokeSearchBar.vue'
 import pokeList from '@/components/pokeList/pokeList.vue'
 import pokeDetailDialog from '@/components/pokeDetailDialog/pokeDetailDialog.vue'
+import whiteStar from '@/assets/images/whiteStar.svg'
 
 const pokemonStore = usePokemonStore()
 const favoriteStore = usePokemonFavoriteStore()
