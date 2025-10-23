@@ -1,12 +1,14 @@
 import { createPinia } from 'pinia'
-import { PokemonStore } from '@/stores/pokemon'
+import { usePokemonStore } from '@/stores/pokemon'
+import { usePokemonFavoriteStore } from '@/stores/favorites'
 
 const pinia = createPinia()
 
-PokemonStore(pinia)
+usePokemonStore(pinia)
+usePokemonFavoriteStore(pinia)
 
 export async function initStores() {
-  const pokemon = PokemonStore(pinia)
+  const pokemon = usePokemonStore(pinia)
   return { pokemon }
 }
 

@@ -1,6 +1,6 @@
-import type { pokemonStoreType } from '@/types/stores/pokemonStoreType'
+import type { PokemonStateType } from '@/types/stores/pokemonStoreType'
 
-export const state = (): pokemonStoreType => ({
+export const state = (): PokemonStateType => ({
   pokemons: [],
   filteredPokemons: [],
   searchTerm: '',

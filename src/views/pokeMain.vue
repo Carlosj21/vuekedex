@@ -78,13 +78,13 @@
 import type { PokemonDetail } from '@/types/api/getPokemonsType'
 import { ref, onMounted, onUnmounted } from 'vue'
 import pokeLoader from '@/components/pokeLoader/pokeLoader.vue'
-import { PokemonStore } from '@/stores/pokemon'
+import { usePokemonStore } from '@/stores/pokemon'
 import pokeSearchBar from '@/components/pokeSearchBar/pokeSearchBar.vue'
 import pokeList from '@/components/pokeList/pokeList.vue'
 import pokeDetailDialog from '@/components/pokeDetailDialog/pokeDetailDialog.vue'
 
 
-const pokemonStore = PokemonStore()
+const pokemonStore = usePokemonStore()
 const observerTarget = ref<HTMLElement | null>(null)
 let observer: IntersectionObserver | null = null
 
@@ -92,13 +92,12 @@ let observer: IntersectionObserver | null = null
 const loading = ref(true);
 setTimeout(() => {
   loading.value = false;
-}, 3000);
+}, 2000);
 
 const showDialog = ref(false)
 const selectedPokemon = ref<PokemonDetail | null>(null)
 
 onMounted(async () => {
-  // Carga primera página si está vacío
   if (pokemonStore.pokemons.length === 0) {
     await pokemonStore.loadMore()
   }

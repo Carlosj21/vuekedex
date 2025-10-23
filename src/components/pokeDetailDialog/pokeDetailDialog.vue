@@ -47,7 +47,7 @@
                 <b>Share to my friends</b>
               </v-btn>
               <v-spacer></v-spacer>
-              <poke-favorite-btn @toggle-value="handleFavoriteValue" :value="props?.pokemon?.id" />
+              <poke-favorite-btn :pokemon="props.pokemon" />
             </v-card-actions>
           </v-container>
         </v-card>
@@ -107,10 +107,6 @@ function copyToClipBoard() {
 
   const infoString = `${name}, ID:${id}, Types:${types}, Weight:${weight}, Height:${height}`
   navigator.clipboard.writeText(infoString);
-}
-
-function handleFavoriteValue() {
-  // guardar o eliminar de favoritos
 }
 
 </script>

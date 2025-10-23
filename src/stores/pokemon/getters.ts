@@ -1,15 +1,15 @@
-import type { PokemonStoreType } from '@/types/stores/pokemonStoreType'
+import type { PokemonStateType } from '@/types/stores/pokemonStoreType'
 
 export const getters = {
-  displayedPokemons: (state: PokemonStoreType) => {
+  displayedPokemons: (state: PokemonStateType) => {
     return state.searchTerm ? state.filteredPokemons : state.pokemons
   },
 
-  hasMore: (state: PokemonStoreType) => {
+  hasMore: (state: PokemonStateType) => {
     return state.offset < state.totalCount
   },
 
-  isSearching: (state: PokemonStoreType) => {
+  isSearching: (state: PokemonStateType) => {
     return state.searchTerm.length > 0
   },
 }

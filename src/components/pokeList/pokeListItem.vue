@@ -3,7 +3,9 @@
     <v-container>
       <v-card :title="props.pokemon.name.toUpperCase()" link @click="handleClick">
         <template v-slot:append>
-          <poke-favorite-btn @toggle-value="handleFavoriteValue" :value="pokemon.id" />
+          <div @click.stop>
+            <poke-favorite-btn :pokemon="pokemon" />
+          </div>
         </template>
       </v-card>
     </v-container>
@@ -19,10 +21,6 @@ const props = defineProps<PokeListItemProps>()
 const emit = defineEmits<{
   (e: 'pokemonClick', pokemon: typeof props.pokemon): void
 }>()
-
-function handleFavoriteValue() {
-  // llamamos action para guardar o eliminar de favoritos
-}
 
 function handleClick() {
   // abrir dialog con detalles del pokemon

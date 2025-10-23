@@ -2,12 +2,6 @@ import type { PokemonStoreType } from '@/types/stores/pokemonStoreType'
 import { pokemonApi } from '@/api/pokemonApi'
 
 export const actions = {
-  addPokemonToFavorites(this: PokemonStoreType, id: number) {
-    this.favoritePokemons[id] = true
-  },
-  removePokemonFromFavorites(this: PokemonStoreType, id: number) {
-    delete this.favoritePokemons[id]
-  },
   async loadMore(this: PokemonStoreType) {
     if (this.loading) return
 

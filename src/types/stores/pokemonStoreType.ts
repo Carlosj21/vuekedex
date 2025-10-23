@@ -1,10 +1,8 @@
 import type { PokemonDetail, PokemonBasicInfo } from '@/types/api/getPokemonsType'
 
-export interface PokemonStoreType {
-  // State
+export interface PokemonStateType {
   pokemons: PokemonDetail[]
   filteredPokemons: PokemonDetail[]
-  favoritePokemons: Record<number, boolean>
   searchTerm: string
   loading: boolean
   offset: number
@@ -12,10 +10,20 @@ export interface PokemonStoreType {
   totalCount: number
   pokemonNamesCache: PokemonBasicInfo[]
   namesCacheLoaded: boolean
-  // actions
+}
+
+export interface PokemonActionsType {
   loadMore(): Promise<void>
   loadPokemonNamesCache(): Promise<void>
   searchPokemons(term: string): Promise<void>
   clearSearch(): void
   resetStore(): void
 }
+
+export interface PokemonGettersType {
+  displayedPokemons: PokemonDetail[]
+  hasMore: boolean
+  isSearching: boolean
+}
+
+export type PokemonStoreType = PokemonStateType & PokemonActionsType & PokemonGettersType

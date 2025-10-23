@@ -3,7 +3,7 @@ import { state } from './state'
 import { getters } from './getters'
 import { actions } from './actions'
 
-export const usePokemonStore = defineStore('pokemon', {
+export const usePokemonFavoriteStore = defineStore('pokemonFavorite', {
   state,
   getters,
   actions,

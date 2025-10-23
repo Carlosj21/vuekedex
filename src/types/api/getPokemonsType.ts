@@ -16,11 +16,23 @@ export interface PokemonDetail {
   name: string
   types: string[]
   sprites?: PokemonSprites
-  weight?: number // Peso en hectogramos (dividir por 10 para kg)
-  height?: number // Altura en decímetros (dividir por 10 para metros)
+  weight?: number
+  height?: number
 }
 
 export interface LoadPokemonsParams {
   limit: number
   offset: number
+}
+
+export interface PokemonFavoriteState {
+  favorites: PokemonDetail[]
+}
+
+export interface PokemonFavoriteStoreType extends PokemonFavoriteState {
+  isFavorite(pokemonId: number): boolean
+  addFavorite(pokemon: PokemonDetail): void
+  removeFavorite(pokemonId: number): void
+  toggleFavorite(pokemon: PokemonDetail): void
+  clearFavorites(): void
 }
