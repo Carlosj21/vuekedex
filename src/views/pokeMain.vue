@@ -61,7 +61,7 @@
         <v-row justify="center">
           <v-spacer></v-spacer>
 
-          <v-col cols="3">
+          <v-col cols="12" sm="6" md="5">
             <v-btn :color="viewMode === 'all' ? 'primary' : 'grey'" size="large" rounded="xl" block class="text-none"
               @click="switchViewMode('all')">
               <template v-slot:prepend>
@@ -71,7 +71,7 @@
             </v-btn>
           </v-col>
 
-          <v-col cols="3">
+          <v-col cols="12" sm="6" md="5">
             <v-btn :color="viewMode === 'favorites' ? 'primary' : 'grey'" size="large" rounded="xl" block
               class="text-none" @click="switchViewMode('favorites')">
               <template v-slot:prepend>

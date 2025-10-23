@@ -1,8 +1,18 @@
 <template>
-  <poke-list-item :pokemon="pokemon" v-for="pokemon in props.pokemons" :key="pokemon.id"
-    @pokemon-click="handlePokemonClick" />
-  <v-row v-if="props.loading">
-    <poke-loader size="sm" />
+  <v-row class="poke-list">
+    <v-col v-for="pokemon in props.pokemons" :key="pokemon.id" cols="12">
+      <poke-list-item :pokemon="pokemon" @pokemon-click="handlePokemonClick" />
+    </v-col>
+
+    <!-- Loader centrado -->
+    <v-col v-if="props.loading" cols="12" class="d-flex justify-center">
+      <poke-loader size="sm" />
+    </v-col>
+
+    <!-- Mensaje cuando lista está vacía -->
+    <v-col v-if="props.pokemons.length === 0 && !props.loading" cols="12" class="text-center">
+      <p class="text-grey">No hay Pokémon para mostrar</p>
+    </v-col>
   </v-row>
 </template>
 

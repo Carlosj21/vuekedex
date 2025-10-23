@@ -1,8 +1,8 @@
 <template>
   <v-container fluid>
     <v-row dense>
-      <v-dialog v-model="dialogModel">
-        <v-card class="mx-auto" width="800">
+      <v-dialog v-model="dialogModel" :max-width="maxWidth">
+        <v-card class="mx-auto" :width="maxWidth">
           <v-btn icon variant="plain" @click="closeDialog" class="close-btn" elevation="2" size="small">
             <v-img height="40" width="40" src="images/closeBtn.svg" />
           </v-btn>
@@ -59,6 +59,7 @@
 import type { PokeDetailDialogProps, PokeDetailDialogEmits } from '@/types/components/pokeDetailDialogPropsType.ts'
 import pokeFavoriteBtn from '@/components/pokeFavoriteBtn/pokeFavoriteBtn.vue';
 import { computed } from 'vue'
+import { useDisplay } from 'vuetify'
 import _ from 'lodash';
 
 
@@ -108,5 +109,10 @@ function copyToClipBoard() {
   const infoString = `${name}, ID:${id}, Types:${types}, Weight:${weight}, Height:${height}`
   navigator.clipboard.writeText(infoString);
 }
+
+const { mdAndDown } = useDisplay()
+const maxWidth = computed(() => {
+  return mdAndDown.value ? '100%' : '600'
+})
 
 </script>
