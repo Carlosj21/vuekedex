@@ -1,14 +1,12 @@
 <template>
   <v-lazy :options="{ threshold: 0.5 }" transition="fade-transition">
-    <v-container>
-      <v-card :title="props.pokemon.name.toUpperCase()" link @click="handleClick">
-        <template v-slot:append>
-          <div @click.stop>
-            <poke-favorite-btn :pokemon="pokemon" />
-          </div>
-        </template>
-      </v-card>
-    </v-container>
+    <v-card :title="props.pokemon.name.toUpperCase()" link @click="handleClick">
+      <template v-slot:append>
+        <div @click.stop>
+          <poke-favorite-btn :pokemon="pokemon" />
+        </div>
+      </template>
+    </v-card>
   </v-lazy>
 </template>
 

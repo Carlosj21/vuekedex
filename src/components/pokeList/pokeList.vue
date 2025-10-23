@@ -1,5 +1,5 @@
 <template>
-  <v-row class="poke-list">
+  <v-row class="poke-list pa-2">
     <v-col v-for="pokemon in props.pokemons" :key="pokemon.id" cols="12">
       <poke-list-item :pokemon="pokemon" @pokemon-click="handlePokemonClick" />
     </v-col>
