@@ -1,6 +1,6 @@
 {
   "name": "vuekedex",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "type": "module",
   "engines": {
@@ -15,6 +15,7 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
+    "postbuild": "node scripts/copy-404.js",
     "deploy": "npm run build && gh-pages -d dist",
     "deploy:gh": "gh-pages -d dist"
   },
