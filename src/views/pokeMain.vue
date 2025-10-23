@@ -14,7 +14,8 @@
     <v-row>
       <v-spacer></v-spacer>
       <v-col cols="12" md="10" sm="10" xs="12" align-self="center">
-        <poke-list :pokemons="displayedList" :loading="pokemonStore.loading" @pokemon-click="openPokemonDetail" />
+        <poke-list :pokemons="displayedList" :loading="pokemonStore.loading" @pokemon-click="openPokemonDetail"
+          :viewMode="viewMode" />
       </v-col>
       <v-spacer></v-spacer>
     </v-row>
@@ -61,7 +62,7 @@
         <v-row justify="center">
           <v-spacer></v-spacer>
 
-          <v-col cols="12" sm="6" md="5">
+          <v-col cols="auto" sm="6" md="5">
             <v-btn :color="viewMode === 'all' ? 'primary' : 'grey'" size="large" rounded="xl" block class="text-none"
               @click="switchViewMode('all')">
               <template v-slot:prepend>
@@ -71,7 +72,7 @@
             </v-btn>
           </v-col>
 
-          <v-col cols="12" sm="6" md="5">
+          <v-col cols="auto" sm="6" md="5">
             <v-btn :color="viewMode === 'favorites' ? 'primary' : 'grey'" size="large" rounded="xl" block
               class="text-none" @click="switchViewMode('favorites')">
               <template v-slot:prepend>

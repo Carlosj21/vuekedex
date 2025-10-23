@@ -8,7 +8,7 @@
         <h1 class="title">Welcome to Pokédex</h1>
       </v-col>
       <v-col cols="12" md="12" class="d-flex align-center justify-center">
-        <h2 class="subtitle">
+        <h2 class="subtitle text-center">
           The digital encyclopedia created by Professor Oak is an invaluable tool to Trainers in the Pokémon
           world.
         </h2>

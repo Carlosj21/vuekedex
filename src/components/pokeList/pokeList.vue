@@ -10,7 +10,7 @@
     </v-col>
 
     <!-- Mensaje cuando lista está vacía -->
-    <v-col v-if="props.pokemons.length === 0 && !props.loading" cols="12" class="text-center">
+    <v-col v-if="props.pokemons.length === 0 && !props.loading && viewMode === 'all'" cols="12" class="text-center">
       <p class="text-grey">No pokémons available please reload</p>
     </v-col>
   </v-row>
