@@ -1,12 +1,14 @@
 <template>
   <v-btn variant="elevated" icon color="whiteSmoke" size="small" @click="toggleFavorite" :loading="loading">
-    <v-img height="30" width="30" :src="isFavorite ? '/images/brightStar.svg' : '/images/dullStar.svg'" />
+    <v-img height="30" width="30" :src="isFavorite ? brightStar : dullStar" />
   </v-btn>
 </template>
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { usePokemonFavoriteStore } from '@/stores/favorites'
 import type { PokemonDetail } from '@/types/api/getPokemonsType'
+import brightStar from '@/assets/images/brightStar.svg'
+import dullStar from '@/assets/images/dullStar.svg'
 
 interface Props {
   pokemon?: PokemonDetail | null

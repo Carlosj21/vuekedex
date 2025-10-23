@@ -4,10 +4,9 @@
       <v-dialog v-model="dialogModel" :max-width="maxWidth">
         <v-card class="mx-auto" :width="maxWidth">
           <v-btn icon variant="plain" @click="closeDialog" class="close-btn" elevation="2" size="small">
-            <v-img height="40" width="40" src="images/closeBtn.svg" />
+            <v-img height="40" width="40" :src="closeBtn" />
           </v-btn>
-          <v-img src="/images/grassbg.svg" class="d-flex justify-center align-center" height="300px"
-            alt="pokemon-sprite-bg" cover>
+          <v-img :src="grassbg" class="d-flex justify-center align-center" height="300px" alt="pokemon-sprite-bg" cover>
             <v-img :src="pokemonSprite" alt="pokemon-sprite" position="absolute" height="250px"></v-img>
           </v-img>
 
@@ -61,6 +60,8 @@ import pokeFavoriteBtn from '@/components/pokeFavoriteBtn/pokeFavoriteBtn.vue';
 import { computed } from 'vue'
 import { useDisplay } from 'vuetify'
 import _ from 'lodash';
+import grassbg from '@/assets/images/grassbg.svg'
+import closeBtn from '@/assets/images/closeBtn.svg'
 
 
 const props = defineProps<PokeDetailDialogProps>()
@@ -82,7 +83,7 @@ const pokemonName = computed(() => {
 const pokemonSprite = computed(() => {
   return props.pokemon?.sprites?.other?.['official-artwork']?.front_default ||
     props.pokemon?.sprites?.front_default ||
-    '/images/pokeball.svg'
+    'images/pokeball.svg'
 })
 
 const pokemonWeight = computed(() => {

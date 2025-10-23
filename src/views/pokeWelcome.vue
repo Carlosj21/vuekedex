@@ -2,7 +2,7 @@
   <v-container fluid class="fill-height">
     <v-row>
       <v-col cols="12" md="12" class="d-flex align-center justify-center">
-        <v-img height="288" width="325" src="images/pikachu.svg"></v-img>
+        <v-img height="288" width="325" :src="pikachu"></v-img>
       </v-col>
       <v-col cols="12" md="12" class="d-flex align-center justify-center">
         <h1 class="title">Welcome to Pokédex</h1>
@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 import router from '@/router/index.ts';
+import pikachu from '@/assets/images/pikachu.svg'
 
 function navigateToPokeMain() {
   router.push({ name: 'PokeMain' });
