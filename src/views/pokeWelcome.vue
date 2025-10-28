@@ -5,7 +5,7 @@
         <v-img height="288" width="325" :src="pikachu"></v-img>
       </v-col>
       <v-col cols="12" md="12" class="d-flex align-center justify-center">
-        <h1 class="title">Welcome to Pokédex</h1>
+        <h1 class="title">Welcome to Vuekédex</h1>
       </v-col>
       <v-col cols="12" md="12" class="d-flex align-center justify-center">
         <h2 class="subtitle text-center">
